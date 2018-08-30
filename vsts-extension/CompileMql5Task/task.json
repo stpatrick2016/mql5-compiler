@@ -12,7 +12,7 @@
     "version": {
         "Major": 0,
         "Minor": 1,
-        "Patch": 0
+        "Patch": 1
     },
     "minimumAgentVersion": "1.95.0",
     "instanceNameFormat": "Compile $(pathToSources)",
@@ -44,9 +44,10 @@
         {
             "name": "metaEditorPath",
             "type": "filePath",
-            "label": "Path to metaeditor64.exe. If left blank, it will be automatically downloaded from external site.",
+            "label": "Path to metaeditor64.exe",
             "defaultValue": "",
             "required": false,
+            "helpMarkDown": "Path to metaeditor64.exe. If left blank, it will be automatically downloaded from external site.",
             "groupName": "advanced"
         }
     ],
