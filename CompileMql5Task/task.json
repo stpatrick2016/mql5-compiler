@@ -1,0 +1,53 @@
+{
+    "id": "74957c9a-ad4b-49d3-80f1-51e09fa0dc5b",
+    "name": "stpatrick-tfs-build-tasks-mql5-compile",
+    "friendlyName": "Compile MQL5 (MetaTrader 5) code",
+    "description": "Compile MQL5 (MetaTrader 5) code on your build server. Only supported on agents hosted in MS Windows",
+    "helpMarkDown": "[More Information](https://github.com/stpatrick2016/mql5-compiler)",
+    "category": "Build",
+    "visibility": [
+        "Build"
+    ],
+    "author": "Philip Patrick",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 0
+    },
+    "minimumAgentVersion": "1.95.0",
+    "instanceNameFormat": "Compile $(pathToSources)",
+    "groups": [
+        {
+            "name": "advanced",
+            "displayName": "Advanced",
+            "isExpanded": false
+        }
+    ],
+    "inputs": [
+        {
+            "name": "pathToSources",
+            "type": "filePath",
+            "label": "Sources",
+            "defaultValue": "*.mqproj",
+            "required": true,
+            "helpMarkDown": "Path to source or project file."
+        },
+        {
+            "name": "mql5IncludePath",
+            "type": "filePath",
+            "label": "MQL5 Include Path",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "Path to MQL5 include files. Leave empty to use those coming with this task.",
+            "groupName": "advanced"
+        }
+    ],
+    "execution": {
+        "PowerShell3": {
+            "target": "CompileMql5.ps1",
+            "platforms": [
+                "windows"
+            ]
+        }
+    }
+}
