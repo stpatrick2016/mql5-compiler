@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param()
 
-$compilerDownloadLink = ""
+$compilerDownloadLink = "https://github.com/stpatrick2016/mql5-compiler/blob/master/engine/metaeditor64.exe?raw=true"
 Trace-VstsEnteringInvocation $MyInvocation
 
 try {
@@ -30,6 +30,11 @@ try {
         {
             Write-Host "Metatrader compiler not found. Downloading from $compilerDownloadLink"
             [System.IO.Directory]::CreateDirectory([System.IO.Path]::GetDirectoryName($metaEditorPath)) | Out-Null
+
+            #fix the TLS issues, see here: https://stackoverflow.com/questions/41618766/powershell-invoke-webrequest-fails-with-ssl-tls-secure-channel
+            [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+
+            #faster than Invoke-WebRequest, performance-wise
             (New-Object System.Net.WebClient).DownloadFile($compilerDownloadLink, $metaEditorPath)
         }
     }
