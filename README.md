@@ -1,5 +1,5 @@
 # Introduction 
-This is a folder where MT5 include files should be placed. They are used in compilation of robot on server
+VSTS (TFS) build task to compile MQL5 projects and files inside TFS builds.
 
 ## Useful links
 * [How to create and package build task](https://docs.microsoft.com/en-us/vsts/extend/develop/add-build-task?view=vsts)
