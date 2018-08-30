@@ -28,7 +28,7 @@ try {
         $metaEditorPath = "$($env:AGENT_WORKFOLDER)\_mql5\metaeditor64.exe"
         if(-not (Test-Path $metaEditorPath -PathType Leaf))
         {
-            Write-Host "Metatrader compiler not found. Downloading from $compilerDownloadLink"
+            Write-Output "Metatrader compiler not found. Downloading from $compilerDownloadLink"
             [System.IO.Directory]::CreateDirectory([System.IO.Path]::GetDirectoryName($metaEditorPath)) | Out-Null
 
             #fix the TLS issues, see here: https://stackoverflow.com/questions/41618766/powershell-invoke-webrequest-fails-with-ssl-tls-secure-channel
@@ -43,7 +43,7 @@ try {
 
     foreach($file in $compileFiles)
     {
-        Write-Host "Compiling MQL5 files: $file"
+        Write-Output "Compiling MQL5 files: $file"
 
         $proc = New-Object System.Diagnostics.Process
         $proc.StartInfo.UseShellExecute = $false
@@ -58,19 +58,20 @@ try {
         $logFile = [System.IO.Path]::ChangeExtension($file, ".log")
         if(Test-Path $logFile -PathType Leaf)
         {
-            Write-Host "Compilation log $([System.IO.Path]::GetFileName($logFile)):"
-            Write-Host "====================================================================="
-            Write-Host (Get-Content $logFile -Raw)
+            Write-Output "Compilation log $([System.IO.Path]::GetFileName($logFile)):"
+            Write-Output "====================================================================="
+            Write-Output (Get-Content $logFile -Raw)
         }
         else 
         {
-            Write-Host "No log created during compilation."
+            Write-Output "No log created during compilation."
         }
         
         #1 - when successful, 0 when fails
         if($exitCode -ne 1)
         {
-            Write-Error "Compilation failed (exit code $exitCode)"
+            Write-VstsTaskError -Message "Compilation failed (exit code $exitCode)"
+            Write-VstsSetResult -Result 'Failed' -Message "Compilation failed"
         }
     }
 

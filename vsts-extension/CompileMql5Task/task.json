@@ -12,7 +12,7 @@
     "version": {
         "Major": 0,
         "Minor": 1,
-        "Patch": 1
+        "Patch": 7
     },
     "minimumAgentVersion": "1.95.0",
     "instanceNameFormat": "Compile $(pathToSources)",
@@ -34,7 +34,7 @@
         },
         {
             "name": "mql5IncludePath",
-            "type": "filePath",
+            "type": "string",
             "label": "MQL5 Include Path",
             "defaultValue": "",
             "required": false,
@@ -43,7 +43,7 @@
         },
         {
             "name": "metaEditorPath",
-            "type": "filePath",
+            "type": "string",
             "label": "Path to metaeditor64.exe",
             "defaultValue": "",
             "required": false,
