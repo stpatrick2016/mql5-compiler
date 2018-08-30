@@ -40,6 +40,14 @@
             "required": false,
             "helpMarkDown": "Path to MQL5 include files. Leave empty to use those coming with this task.",
             "groupName": "advanced"
+        },
+        {
+            "name": "metaEditorPath",
+            "type": "filePath",
+            "label": "Path to metaeditor64.exe. If left blank, it will be automatically downloaded from external site.",
+            "defaultValue": "",
+            "required": false,
+            "groupName": "advanced"
         }
     ],
     "execution": {

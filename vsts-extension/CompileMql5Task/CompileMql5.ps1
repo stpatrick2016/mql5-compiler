@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param()
 
+$compilerDownloadLink = ""
 Trace-VstsEnteringInvocation $MyInvocation
 
 try {
@@ -9,6 +10,7 @@ try {
     #get the inputs
     [string]$pathToSources = Get-VstsInput -Name pathToSources -Require
     [string]$mql5IncludePath = Get-VstsInput -Name mql5IncludePath
+    [string]$metaEditorPath = Get-VstsInput -Name metaEditorPath
 
     if("$mql5IncludePath" -eq "")
     {
@@ -20,6 +22,18 @@ try {
         $pathToSources = "$($env:BUILD_SOURCESDIRECTORY)\*.mqproj"
     }
 
+    if("$metaEditorPath" -eq "")
+    {
+        #download the file if not exist already
+        $metaEditorPath = "$($env:AGENT_WORKFOLDER)\_mql5\metaeditor64.exe"
+        if(-not (Test-Path $metaEditorPath -PathType Leaf))
+        {
+            Write-Host "Metatrader compiler not found. Downloading from $compilerDownloadLink"
+            [System.IO.Directory]::CreateDirectory([System.IO.Path]::GetDirectoryName($metaEditorPath)) | Out-Null
+            (New-Object System.Net.WebClient).DownloadFile($compilerDownloadLink, $metaEditorPath)
+        }
+    }
+
     $compileFiles = Find-VstsMatch -DefaultRoot $env:BUILD_SOURCESDIRECTORY -Pattern $pathToSources
 
     foreach($file in $compileFiles)
@@ -28,7 +42,7 @@ try {
 
         $proc = New-Object System.Diagnostics.Process
         $proc.StartInfo.UseShellExecute = $false
-        $proc.StartInfo.FileName = "$PSScriptRoot\metaeditor64.exe"
+        $proc.StartInfo.FileName = $metaEditorPath
         $proc.StartInfo.CreateNoWindow = $true
         $proc.StartInfo.Arguments = "/compile:`"$file`" /log /include:`"$mql5IncludePath`""
         $proc.Start() | Out-Null
