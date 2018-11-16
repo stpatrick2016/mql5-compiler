@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "stpatrick-tfs-build-tasks-mql5",
     "name": "MetaTrader 5 build tasks",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "publisher": "philip-patrick",
     "targets": [
         {
