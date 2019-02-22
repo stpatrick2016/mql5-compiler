@@ -3,9 +3,6 @@
 //|                   Copyright 2016-2017, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2016-2017, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-
 #include <Math\Stat\Normal.mqh>
 
 const double DoubleEpsilon=1.11022302462515654042E-16;

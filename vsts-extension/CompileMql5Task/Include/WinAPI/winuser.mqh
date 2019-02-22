@@ -3,20 +3,13 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #include <WinAPI\windef.mqh>
 #include <WinAPI\wingdi.mqh>
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 #define POINTER_DEVICE_PRODUCT_STRING_MAX 520
 #define KL_NAMELENGTH                     9
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 enum AR_STATE
   {
@@ -132,9 +125,6 @@ enum POINTER_DEVICE_TYPE
    POINTER_DEVICE_TYPE_TOUCH_PAD=0x00000004,
    POINTER_DEVICE_TYPE_MAX=0xFFFFFFFF
   };
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
 //---
 struct ACCEL
   {

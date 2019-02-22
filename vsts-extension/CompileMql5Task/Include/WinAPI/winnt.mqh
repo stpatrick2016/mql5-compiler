@@ -3,13 +3,8 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #include <WinAPI\windef.mqh>
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 #define UNWIND_HISTORY_TABLE_SIZE            12
 #define SIZE_OF_80387_REGISTERS              80
@@ -28,9 +23,7 @@
 #define IMAGE_ENCLAVE_LONG_ID_LENGTH         32
 #define IMAGE_ENCLAVE_SHORT_ID_LENGTH        16
 #define RTL_CORRELATION_VECTOR_STRING_LENGTH 129
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 enum SID_NAME_USE
   {
@@ -3654,6 +3647,7 @@ ushort   RtlCaptureStackBackTrace(uint frames_to_skip,uint frames_to_capture,PVO
 ulong    RtlCompareMemory(const uchar &source1[],const uchar &source2[],ulong length);
 ulong    VerSetConditionMask(ulong condition_mask,uint type_mask,uchar condition);
 #import
+
 #import "Win32k.sys"
 void     RtlCaptureContext(PVOID context_record);
 void     RtlUnwind(PVOID target_frame,PVOID target_ip,EXCEPTION_RECORD &exception_record,PVOID return_value);

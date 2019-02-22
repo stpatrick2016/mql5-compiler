@@ -3,22 +3,14 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #include <WinAPI\windef.mqh>
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 enum STREAM_INFO_LEVELS
   {
    FindStreamInfoStandard,
    FindStreamInfoMaxInfoLevel
   };
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
 //---
 struct BY_HANDLE_FILE_INFORMATION
   {

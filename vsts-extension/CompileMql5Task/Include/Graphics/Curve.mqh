@@ -85,7 +85,7 @@ private:
    bool              m_visible;
    //--- trend line property
    uint              m_trend_clr;
-   double            m_trend_visible;
+   bool              m_trend_visible;
 
 protected:
    bool              m_trend_calc;

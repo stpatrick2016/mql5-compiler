@@ -3,9 +3,6 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #define HANDLE                         long
 #define PVOID                          long
 //---
@@ -15,9 +12,7 @@
 #define MAX_HW_COUNTERS                16
 #define MAX_PATH                       260
 #define EXCEPTION_MAXIMUM_PARAMETERS   15
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 enum LATENCY_TIME
   {
@@ -216,9 +211,6 @@ enum WELL_KNOWN_SID_TYPE
    WinAuthenticationFreshKeyAuthSid=118,
    WinBuiltinDeviceOwnersSid=119
   };
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
 //---
 union FILE_SEGMENT_ELEMENT
   {

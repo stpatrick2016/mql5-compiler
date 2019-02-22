@@ -3,23 +3,16 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #include <WinAPI\windef.mqh>
 #include <WinAPI\winnt.mqh>
 #include <WinAPI\fileapi.mqh>
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 #define OFS_MAXPATHNAME            128
 #define HW_PROFILE_GUIDLEN         39
 #define MAX_PROFILE_LEN            80
 #define RESTART_MAX_CMD_LINE       1024
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 enum COPYFILE2_COPY_PHASE
   {
@@ -97,9 +90,6 @@ enum PROC_THREAD_ATTRIBUTE_NUM
    ProcThreadAttributeSafeOpenPromptOriginClaim=17,
    ProcThreadAttributeDesktopAppPolicy=18
   };
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
 //---
 struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA
   {
@@ -784,6 +774,7 @@ uint                   WTSGetActiveConsoleSessionId(void);
 int                    ZombifyActCtx(HANDLE act_ctx);
 int                    ZombifyActCtx(ACTCTXW &act_ctx);
 #import
+
 #import "advapi32.dll"
 int                    AddConditionalAce(ACL &acl,uint ace_revision,uint AceFlags,uchar AceType,uint AccessMask,SID &sid,string ConditionStr,uint &ReturnLength);
 int                    BackupEventLogW(HANDLE event_log,const string backup_file_name);

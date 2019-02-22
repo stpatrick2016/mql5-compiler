@@ -3,10 +3,8 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #include <WinAPI\windef.mqh>
+#include <WinAPI\winnt.mqh>
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
@@ -108,6 +106,7 @@ int                       SetSecurityDescriptorSacl(SECURITY_DESCRIPTOR &securit
 int                       SetTokenInformation(HANDLE token_handle,TOKEN_INFORMATION_CLASS token_information_class,PVOID token_information,uint token_information_length);
 int                       CveEventWrite(const string cve_id,const string additional_details);
 #import
+
 #import "kernel32.dll"
 int                       AddResourceAttributeAce(ACL &acl,uint ace_revision,uint ace_flags,uint access_mask,SID &sid,CLAIM_SECURITY_ATTRIBUTES_INFORMATION &attribute_info,uint &return_length);
 int                       AddScopedPolicyIDAce(ACL &acl,uint ace_revision,uint ace_flags,uint access_mask,SID &sid);

@@ -3,14 +3,9 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #include <WinAPI\windef.mqh>
 #include <WinAPI\winnt.mqh>
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 #define MM_MAX_AXES_NAMELEN   16
 #define MM_MAX_NUMAXES        16
@@ -19,9 +14,7 @@
 #define LF_FULLFACESIZE       64
 #define ELF_VENDOR_SIZE       4
 #define CCHFORMNAME           32
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 enum DISPLAYCONFIG_COLOR_ENCODING
   {
@@ -128,9 +121,6 @@ enum DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY
    DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL=0x80000000,
    DISPLAYCONFIG_OUTPUT_TECHNOLOGY_FORCE_UINT32=0xFFFFFFFF
   };
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
 //---
 struct ABC
   {
@@ -1433,7 +1423,7 @@ struct GCP_RESULTSW
    PVOID             lpDx;       
    PVOID             lpCaretPos; 
    PVOID             lpClass;    
-   string            lpGlyphs;
+   PVOID             lpGlyphs;
    uint              nGlyphs;
    int               nMaxFit;
   };
@@ -1822,7 +1812,7 @@ HANDLE       CreatePalette(LOGPALETTE &plpal);
 HANDLE       CreatePatternBrush(HANDLE hbm);
 HANDLE       CreatePen(int style,int width,uint clr);
 HANDLE       CreatePenIndirect(LOGPEN &plpen);
-HANDLE       CreatePolygonRgn(POINT &pptl,int point,int mode);
+HANDLE       CreatePolygonRgn(POINT &pptl[],int point,int mode);
 HANDLE       CreatePolyPolygonRgn(const POINT &pptl[],const int &pc[],int poly,int mode);
 HANDLE       CreateRectRgn(int x1,int y1,int x2,int y2);
 HANDLE       CreateRectRgnIndirect(RECT &lprect);
@@ -1897,7 +1887,7 @@ uint         GetDCPenColor(HANDLE hdc);
 int          GetDeviceCaps(HANDLE hdc,int index);
 int          GetDeviceGammaRamp(HANDLE hdc,PVOID ramp);
 int          GetDeviceGammaRamp(HANDLE hdc,ushort &ramp[]);
-uint         GetDIBColorTable(HANDLE hdc,uint start,uint entries,RGBQUAD &prgbq);
+uint         GetDIBColorTable(HANDLE hdc,uint start,uint entries,RGBQUAD &prgbq[]);
 int          GetDIBits(HANDLE hdc,HANDLE hbm,uint start,uint lines,PVOID bits,BITMAPINFO &lpbmi,uint usage);
 uint         GetEnhMetaFileBits(HANDLE hEMF,uint size,uchar &data[]);
 uint         GetEnhMetaFileDescriptionW(HANDLE hemf,uint buffer,string description);
@@ -1934,6 +1924,7 @@ int          GetPolyFillMode(HANDLE hdc);
 int          GetRandomRgn(HANDLE hdc,HANDLE hrgn,int i);
 int          GetRasterizerCaps(RASTERIZER_STATUS &lpraststat,uint bytes);
 uint         GetRegionData(HANDLE hrgn,uint count,RGNDATA &rgn_data);
+uint         GetRegionData(HANDLE hrgn,uint count,PVOID rgn_data);
 int          GetRgnBox(HANDLE hrgn,RECT &lprc);
 int          GetROP2(HANDLE hdc);
 PVOID        GetStockObject(int i);
@@ -2066,6 +2057,7 @@ int          UpdateColors(HANDLE hdc);
 int          UpdateICMRegKeyW(uint reserved,string lpszCMID,string file_name,uint command);
 int          WidenPath(HANDLE hdc);
 #import
+
 #import "Opengl32.dll"
 int          wglCopyContext(HANDLE,HANDLE,uint);
 HANDLE       wglCreateContext(HANDLE);

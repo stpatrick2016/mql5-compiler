@@ -166,10 +166,10 @@ CTrade::CTrade(void) : m_async_mode(false),
 //--- initialize protected data
    ClearStructures();
 //--- check programm mode
-   if(MQL5InfoInteger(MQL5_OPTIMIZATION))
-      m_log_level=LOG_LEVEL_NO;
    if(MQL5InfoInteger(MQL5_TESTING))
       m_log_level=LOG_LEVEL_ALL;
+   if(MQL5InfoInteger(MQL5_OPTIMIZATION))
+      m_log_level=LOG_LEVEL_NO;
   }
 //+------------------------------------------------------------------+
 //| Destructor                                                       |

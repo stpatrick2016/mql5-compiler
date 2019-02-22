@@ -3,13 +3,8 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #include <WinAPI\windef.mqh>
-//+------------------------------------------------------------------+
-//|                                                                  |
-//+------------------------------------------------------------------+
+
 //---
 struct ENUMUILANG
   {
@@ -45,6 +40,7 @@ HANDLE               FindResourceW(HANDLE module,const string name,const string 
 HANDLE               LoadLibraryW(const string lib_file_name);
 int                  EnumResourceNamesW(HANDLE module,const string type,PVOID enum_func,long param);
 #import
+
 #import "user32.dll"
 int                  LoadStringW(HANDLE instance,uint id,string buffer,int buffer_max);
 #import

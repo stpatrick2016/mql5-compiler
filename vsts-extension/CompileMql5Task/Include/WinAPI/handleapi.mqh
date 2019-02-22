@@ -3,10 +3,8 @@
 //|                        Copyright 2018, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2018, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-//---
 #include <WinAPI\windef.mqh>
+
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
@@ -16,6 +14,7 @@ int  DuplicateHandle(HANDLE source_process_handle,HANDLE source_handle,HANDLE ta
 int  GetHandleInformation(HANDLE object,uint& flags);
 int  SetHandleInformation(HANDLE object,uint mask,uint flags);
 #import
+
 #import "kernelbase.dll"
 int  CompareObjectHandles(HANDLE first_object_handle, HANDLE second_object_handle); 
 #import 
