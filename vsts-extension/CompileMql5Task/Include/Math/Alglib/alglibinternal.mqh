@@ -104,7 +104,7 @@ CApBuff::~CApBuff(void)
 //+------------------------------------------------------------------+
 //| Copy                                                             |
 //+------------------------------------------------------------------+
-CApBuff::Copy(CApBuff &obj)
+void CApBuff::Copy(CApBuff &obj)
   {
 //--- copy arrays
    ArrayCopy(m_ia0,obj.m_ia0);
@@ -6991,7 +6991,7 @@ CLinMinState::~CLinMinState(void)
 //+------------------------------------------------------------------+
 //| Create a copy                                                    |
 //+------------------------------------------------------------------+
-CLinMinState::Copy(CLinMinState &obj)
+void CLinMinState::Copy(CLinMinState &obj)
   {
 //--- copy variables
    m_brackt=obj.m_brackt;
