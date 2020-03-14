@@ -24,11 +24,18 @@ public:
    //--- method for attaching objects
    bool              Attach(CChartObjectLabel *chart_object);
    bool              X_Distance(const int X);
+   int               X_Distance(void) const { return(CChartObjectButton::X_Distance()); }
    bool              Y_Distance(const int Y);
+   int               Y_Distance(void) const { return(CChartObjectButton::Y_Distance()); }
    int               X_Size() const;
+   int               X_Size(const int Y) const { return(CChartObjectButton::X_Size()); }
    int               Y_Size() const;
+   int               Y_Size(const int Y) const { return(CChartObjectButton::Y_Size()); }
+   
+   int               Timeframes(void) const { return(CChartObjectButton::Timeframes()); }
    virtual bool      Timeframes(const int timeframes);
    bool              State(const bool state);
+   bool              State(void) const  { return(CChartObjectButton::State()); }
    bool              CheckState();
 
 protected:

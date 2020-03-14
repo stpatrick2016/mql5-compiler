@@ -3,7 +3,7 @@
 //|                   Copyright 2016-2017, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#include <Math\Stat\Normal.mqh>
+#include "Normal.mqh"
 
 const double DoubleEpsilon=1.11022302462515654042E-16;
 const double LogMax=7.09782712893383996732E2;

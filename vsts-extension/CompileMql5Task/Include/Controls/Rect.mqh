@@ -265,15 +265,15 @@ void CRect::Normalize(void)
   {
    if(left>right)
      {
-      int tmp=left;
+      int tmp1=left;
       left=right;
-      right=tmp;
+      right=tmp1;
      }
    if(top>bottom)
      {
-      int tmp=top;
+      int tmp2=top;
       top=bottom;
-      bottom=tmp;
+      bottom=tmp2;
      }
   }
 //+------------------------------------------------------------------+

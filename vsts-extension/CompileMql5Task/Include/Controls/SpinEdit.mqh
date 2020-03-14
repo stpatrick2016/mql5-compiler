@@ -38,7 +38,7 @@ public:
    //--- set up
    int               MinValue(void) const { return(m_min_value); }
    void              MinValue(const int value);
-   int               MaxValue(void) const { return(m_min_value); }
+   int               MaxValue(void) const { return(m_max_value); }
    void              MaxValue(const int value);
    //--- state
    int               Value(void) const { return(m_value); }

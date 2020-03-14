@@ -40,6 +40,7 @@ public:
    virtual bool      HScrolled(const bool flag);
    //--- ID
    virtual long      Id(const long id);
+   virtual long      Id(void) const { return(CWnd::Id()); }
    //--- state
    virtual bool      Show(void);
 

@@ -40,8 +40,8 @@ public:
    short             At(const int index) const;
    short operator[](const int index) const { return(At(index)); }
    //--- methods of searching for minimum and maximum
-   int               Minimum(const int start,const int count) const { return(Minimum(m_data,start,count)); }
-   int               Maximum(const int start,const int count) const { return(Maximum(m_data,start,count)); }
+   int               Minimum(const int start,const int count) const { return(CArray::Minimum(m_data,start,count)); }
+   int               Maximum(const int start,const int count) const { return(CArray::Maximum(m_data,start,count)); }
    //--- methods of changing
    bool              Update(const int index,const short element);
    bool              Shift(const int index,const int shift);

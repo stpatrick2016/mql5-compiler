@@ -29,6 +29,10 @@ public:
    //--- method of refreshing of data in buffer
    bool              Refresh(const int handle,const int num);
    bool              RefreshCurrent(const int handle,const int num);
+   
+private:
+   virtual bool      Refresh(void) { return(CDoubleBuffer::Refresh()); }
+   virtual bool      RefreshCurrent(void) { return(CDoubleBuffer::RefreshCurrent()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -193,7 +197,7 @@ int CIndicator::BarsCalculated(void) const
    if(m_handle==INVALID_HANDLE)
       return(-1);
 //---
-   return(BarsCalculated(m_handle));
+   return(::BarsCalculated(m_handle));
   }
 //+------------------------------------------------------------------+
 //| API access method "Copying an element of indicator buffer        |

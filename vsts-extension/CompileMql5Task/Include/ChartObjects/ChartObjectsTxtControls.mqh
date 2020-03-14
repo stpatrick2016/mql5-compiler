@@ -16,6 +16,10 @@ class CChartObjectText : public CChartObject
 public:
                      CChartObjectText(void);
                     ~CChartObjectText(void);
+   //--- method of creating the object
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
+   //--- method of identifying the object
+   virtual int       Type(void) const override { return(OBJ_TEXT); }
    //--- methods of access to properties of the object
    double            Angle(void) const;
    bool              Angle(const double angle) const;
@@ -25,11 +29,6 @@ public:
    bool              FontSize(const int size) const;
    ENUM_ANCHOR_POINT Anchor(void) const;
    bool              Anchor(const ENUM_ANCHOR_POINT anchor) const;
-   //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
-   //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_TEXT); }
    //--- methods for working with files
    virtual bool      Save(const int file_handle);
    virtual bool      Load(const int file_handle);
@@ -219,6 +218,10 @@ class CChartObjectLabel : public CChartObjectText
 public:
                      CChartObjectLabel(void);
                     ~CChartObjectLabel(void);
+   //--- method of creating the object
+   bool              Create(long chart_id,const string name,const int window,const int X,const int Y);
+   //--- method of identifying the object
+   virtual int       Type(void) const { return(OBJ_LABEL); }
    //--- methods of access to properties of the object
    int               X_Distance(void) const;
    bool              X_Distance(const int X) const;
@@ -226,15 +229,14 @@ public:
    bool              Y_Distance(const int Y) const;
    int               X_Size(void) const;
    int               Y_Size(void) const;
+   
    ENUM_BASE_CORNER  Corner(void) const;
    bool              Corner(const ENUM_BASE_CORNER corner) const;
    //--- change of time/price coordinates is blocked
-   bool              Time(const datetime time) const { return(false); }
-   bool              Price(const double price) const { return(false); }
-   //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,const int X,const int Y);
-   //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_LABEL); }
+   datetime          Time(const int point) const { return(CChartObjectText::Time(point)); }
+   bool              Time(const int point,const datetime time) const { return(false); }
+   double            Price(const int point) const { return(CChartObjectText::Price(point)); }
+   bool              Price(const int point,const double price) const { return(false); }
    //--- methods for working with files
    virtual bool      Save(const int file_handle);
    virtual bool      Load(const int file_handle);
@@ -413,9 +415,15 @@ class CChartObjectEdit : public CChartObjectLabel
 public:
                      CChartObjectEdit(void);
                     ~CChartObjectEdit(void);
+   //--- method of creating the object
+   bool              Create(long chart_id,const string name,const int window,const int X,const int Y,const int sizeX,const int sizeY);
+   //--- method of identifying the object
+   virtual int       Type(void) const override { return(OBJ_EDIT); }
    //--- methods of access to properties of the object
    bool              X_Size(const int X) const;
+   int               X_Size(void) const { return(CChartObjectLabel::X_Size()); }
    bool              Y_Size(const int Y) const;
+   int               Y_Size(void) const { return(CChartObjectLabel::Y_Size()); }
    color             BackColor(void) const;
    bool              BackColor(const color new_color) const;
    color             BorderColor(void) const;
@@ -426,10 +434,7 @@ public:
    bool              TextAlign(const ENUM_ALIGN_MODE align) const;
    //--- change of angle is blocked
    bool              Angle(const double angle) const { return(false); }
-   //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,const int X,const int Y,const int sizeX,const int sizeY);
-   //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_EDIT); }
+   double            Angle(void) const { return(CChartObjectLabel::Angle()); }
    //--- methods for working with files
    virtual bool      Save(const int file_handle);
    virtual bool      Load(const int file_handle);
@@ -630,11 +635,11 @@ class CChartObjectButton : public CChartObjectEdit
 public:
                      CChartObjectButton(void);
                     ~CChartObjectButton(void);
+   //--- method of identifying the object
+   virtual int       Type(void) const override { return(OBJ_BUTTON); }
    //--- methods of access to properties of the object
    bool              State(void) const;
    bool              State(const bool state) const;
-   //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_BUTTON); }
    //--- methods for working with files
    virtual bool      Save(const int file_handle);
    virtual bool      Load(const int file_handle);
@@ -719,19 +724,22 @@ class CChartObjectRectLabel : public CChartObjectLabel
 public:
                      CChartObjectRectLabel(void);
                     ~CChartObjectRectLabel(void);
+   //--- method of creating the object
+   bool              Create(long chart_id,const string name,const int window,const int X,const int Y,const int sizeX,const int sizeY);
+   //--- method of identifying the object
+   virtual int       Type(void) const { return(OBJ_RECTANGLE_LABEL); }
    //--- methods of access to properties of the object
    bool              X_Size(const int X) const;
+   int               X_Size(void)const { return(CChartObjectLabel::X_Size()); }
    bool              Y_Size(const int Y) const;
+   int               Y_Size(void)const { return(CChartObjectLabel::Y_Size()); }
    color             BackColor(void) const;
    bool              BackColor(const color new_color) const;
    ENUM_BORDER_TYPE  BorderType(void) const;
    bool              BorderType(const ENUM_BORDER_TYPE flag) const;
    //--- change of angle is blocked
    bool              Angle(const double angle) const { return(false); }
-   //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,const int X,const int Y,const int sizeX,const int sizeY);
-   //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_RECTANGLE_LABEL); }
+   double            Angle(void) const { return(CChartObjectLabel::Angle()); }
    //--- methods for working with files
    virtual bool      Save(const int file_handle);
    virtual bool      Load(const int file_handle);

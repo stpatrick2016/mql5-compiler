@@ -179,7 +179,7 @@ bool CFlameCanvas::Resize(void)
       width=m_width;
    if(width<=0)
       return(false);
-   Resize(width,height);
+   CCanvas::Resize(width,height);
 //--- resize flame buffer
    ArrayResize(m_flame,width*height);
    ArrayInitialize(m_flame,0);

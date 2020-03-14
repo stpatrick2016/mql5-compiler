@@ -16,16 +16,15 @@ class CChartObjectArrow : public CChartObject
 public:
                      CChartObjectArrow(void);
                     ~CChartObjectArrow(void);
-   //--- methods of access to properties of the object
-   char              ArrowCode(void) const;
-   bool              ArrowCode(const char code) const;
-   ENUM_ARROW_ANCHOR Anchor(void) const;
-   bool              Anchor(const ENUM_ARROW_ANCHOR anchor) const;
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price,const char code);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price,const char code);
    //--- method of identifying the object
    virtual int       Type(void) const { return(OBJ_ARROW); }
+   //--- methods of access to properties of the object
+   char              ArrowCode(void) const;
+   virtual bool      ArrowCode(const char code) const;
+   ENUM_ARROW_ANCHOR Anchor(void) const;
+   virtual bool      Anchor(const ENUM_ARROW_ANCHOR anchor) const;
    //--- methods for working with files
    virtual bool      Save(const int file_handle);
    virtual bool      Load(const int file_handle);
@@ -45,8 +44,7 @@ CChartObjectArrow::~CChartObjectArrow(void)
 //+------------------------------------------------------------------+
 //| Create object "Arrow"                                            |
 //+------------------------------------------------------------------+
-bool CChartObjectArrow::Create(long chart_id,const string name,const int window,
-                               const datetime time,const double price,const char code)
+bool CChartObjectArrow::Create(long chart_id,const string name,const int window,const datetime time,const double price,const char code)
   {
    if(!ObjectCreate(chart_id,name,OBJ_ARROW,window,time,price))
       return(false);
@@ -148,13 +146,13 @@ class CChartObjectArrowThumbUp : public CChartObjectArrow
 public:
                      CChartObjectArrowThumbUp(void);
                     ~CChartObjectArrowThumbUp(void);
-   //--- change of arrow code is blocked
-   bool              ArrowCode(const char code) const { return(false); }
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
    //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_ARROW_THUMB_UP); }
+   virtual int       Type(void) const override { return(OBJ_ARROW_THUMB_UP); }
+   //--- change of arrow code is blocked
+   virtual bool      ArrowCode(const char code) const override { return(false); }
+   char              ArrowCode(void) const { return(CChartObjectArrow::ArrowCode()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -171,8 +169,7 @@ CChartObjectArrowThumbUp::~CChartObjectArrowThumbUp(void)
 //+------------------------------------------------------------------+
 //| Create object "Thumbs Up"                                        |
 //+------------------------------------------------------------------+
-bool CChartObjectArrowThumbUp::Create(long chart_id,const string name,const int window,
-                                      const datetime time,const double price)
+bool CChartObjectArrowThumbUp::Create(long chart_id,const string name,const int window,const datetime time,const double price)
   {
    if(!ObjectCreate(chart_id,name,OBJ_ARROW_THUMB_UP,window,time,price))
       return(false);
@@ -191,13 +188,13 @@ class CChartObjectArrowThumbDown : public CChartObjectArrow
 public:
                      CChartObjectArrowThumbDown(void);
                     ~CChartObjectArrowThumbDown(void);
-   //--- change of arrow code is blocked
-   bool              ArrowCode(const char code) const { return(false); }
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
    //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_ARROW_THUMB_DOWN); }
+   virtual int       Type(void) const override { return(OBJ_ARROW_THUMB_DOWN); }
+   //--- change of arrow code is blocked
+   virtual bool      ArrowCode(const char code) const override { return(false); }
+   char              ArrowCode(void) const { return(CChartObjectArrow::ArrowCode()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -214,8 +211,7 @@ CChartObjectArrowThumbDown::~CChartObjectArrowThumbDown(void)
 //+------------------------------------------------------------------+
 //| Create object "ThumbsDown"                                       |
 //+------------------------------------------------------------------+
-bool CChartObjectArrowThumbDown::Create(long chart_id,const string name,const int window,
-                                        const datetime time,const double price)
+bool CChartObjectArrowThumbDown::Create(long chart_id,const string name,const int window,const datetime time,const double price)
   {
    if(!ObjectCreate(chart_id,name,OBJ_ARROW_THUMB_DOWN,window,time,price))
       return(false);
@@ -234,13 +230,13 @@ class CChartObjectArrowUp : public CChartObjectArrow
 public:
                      CChartObjectArrowUp(void);
                     ~CChartObjectArrowUp(void);
-   //--- change of arrow code is blocked
-   bool              ArrowCode(const char code) const { return(false); }
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
    //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_ARROW_UP); }
+   virtual int       Type(void) const override { return(OBJ_ARROW_UP); }
+   //--- change of arrow code is blocked
+   virtual bool      ArrowCode(const char code) const override { return(false); }
+   char              ArrowCode(void) const { return(CChartObjectArrow::ArrowCode()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -257,8 +253,7 @@ CChartObjectArrowUp::~CChartObjectArrowUp(void)
 //+------------------------------------------------------------------+
 //| Create object "Arrow Up"                                         |
 //+------------------------------------------------------------------+
-bool CChartObjectArrowUp::Create(long chart_id,const string name,const int window,
-                                 const datetime time,const double price)
+bool CChartObjectArrowUp::Create(long chart_id,const string name,const int window,const datetime time,const double price)
   {
    if(!ObjectCreate(chart_id,name,OBJ_ARROW_UP,window,time,price))
       return(false);
@@ -277,13 +272,13 @@ class CChartObjectArrowDown : public CChartObjectArrow
 public:
                      CChartObjectArrowDown(void);
                     ~CChartObjectArrowDown(void);
-   //--- change of arrow code is blocked
-   bool              ArrowCode(const char code) const { return(false); }
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
    //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_ARROW_DOWN); }
+   virtual int       Type(void) const override { return(OBJ_ARROW_DOWN); }
+   //--- change of arrow code is blocked
+   virtual bool      ArrowCode(const char code) const override { return(false); }
+   char              ArrowCode(void) const { return(CChartObjectArrow::ArrowCode()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -300,8 +295,7 @@ CChartObjectArrowDown::~CChartObjectArrowDown(void)
 //+------------------------------------------------------------------+
 //| Create object "Arrow Down"                                       |
 //+------------------------------------------------------------------+
-bool CChartObjectArrowDown::Create(long chart_id,const string name,const int window,
-                                   const datetime time,const double price)
+bool CChartObjectArrowDown::Create(long chart_id,const string name,const int window,const datetime time,const double price)
   {
    if(!ObjectCreate(chart_id,name,OBJ_ARROW_DOWN,window,time,price))
       return(false);
@@ -320,13 +314,13 @@ class CChartObjectArrowStop : public CChartObjectArrow
 public:
                      CChartObjectArrowStop(void);
                     ~CChartObjectArrowStop(void);
-   //--- change of arrow code is blocked
-   bool              ArrowCode(const char code) const { return(false); }
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
    //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_ARROW_STOP); }
+   virtual int       Type(void) const override { return(OBJ_ARROW_STOP); }
+   //--- change of arrow code is blocked
+   virtual bool      ArrowCode(const char code) const override { return(false); }
+   char              ArrowCode(void) const { return(CChartObjectArrow::ArrowCode()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -343,8 +337,7 @@ CChartObjectArrowStop::~CChartObjectArrowStop(void)
 //+------------------------------------------------------------------+
 //| Create object "Stop Sign"                                        |
 //+------------------------------------------------------------------+
-bool CChartObjectArrowStop::Create(long chart_id,const string name,const int window,
-                                   const datetime time,const double price)
+bool CChartObjectArrowStop::Create(long chart_id,const string name,const int window,const datetime time,const double price)
   {
    if(!ObjectCreate(chart_id,name,OBJ_ARROW_STOP,window,time,price))
       return(false);
@@ -363,13 +356,13 @@ class CChartObjectArrowCheck : public CChartObjectArrow
 public:
                      CChartObjectArrowCheck(void);
                     ~CChartObjectArrowCheck(void);
-   //--- change of arrow code is blocked
-   bool              ArrowCode(const char code) const { return(false); }
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
    //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_ARROW_CHECK); }
+   virtual int       Type(void) const override { return(OBJ_ARROW_CHECK); }
+   //--- change of arrow code is blocked
+   virtual bool      ArrowCode(const char code) const override { return(false); }
+   char              ArrowCode(void) const { return(CChartObjectArrow::ArrowCode()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -386,8 +379,7 @@ CChartObjectArrowCheck::~CChartObjectArrowCheck(void)
 //+------------------------------------------------------------------+
 //| Create object "Check Sign"                                       |
 //+------------------------------------------------------------------+
-bool CChartObjectArrowCheck::Create(long chart_id,const string name,const int window,
-                                    const datetime time,const double price)
+bool CChartObjectArrowCheck::Create(long chart_id,const string name,const int window,const datetime time,const double price)
   {
    if(!ObjectCreate(chart_id,name,OBJ_ARROW_CHECK,window,time,price))
       return(false);
@@ -406,14 +398,15 @@ class CChartObjectArrowLeftPrice : public CChartObjectArrow
 public:
                      CChartObjectArrowLeftPrice(void);
                     ~CChartObjectArrowLeftPrice(void);
-   //--- change of arrow code and anchor point is blocked
-   bool              ArrowCode(const char code) const { return(false); }
-   bool              Anchor(const ENUM_ANCHOR_POINT anchor) const { return(false); }
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
    //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_ARROW_LEFT_PRICE); }
+   virtual int       Type(void) const override { return(OBJ_ARROW_LEFT_PRICE); }
+   //--- change of arrow code and anchor point is blocked
+   virtual bool      ArrowCode(const char code) const override { return(false); }
+   char              ArrowCode(void) const { return(CChartObjectArrow::ArrowCode()); }
+   virtual bool      Anchor(const ENUM_ARROW_ANCHOR anchor) const override { return(false); }
+   ENUM_ARROW_ANCHOR Anchor(void) const { return(CChartObjectArrow::Anchor()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -449,14 +442,15 @@ class CChartObjectArrowRightPrice : public CChartObjectArrow
 public:
                      CChartObjectArrowRightPrice(void);
                     ~CChartObjectArrowRightPrice(void);
-   //--- change of arrow code and anchor point is blocked
-   bool              ArrowCode(const char code) const { return(false); }
-   bool              Anchor(const ENUM_ANCHOR_POINT anchor) const { return(false); }
    //--- method of creating the object
-   bool              Create(long chart_id,const string name,const int window,
-                            const datetime time,const double price);
+   bool              Create(long chart_id,const string name,const int window,const datetime time,const double price);
    //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_ARROW_RIGHT_PRICE); }
+   virtual int       Type(void) const override { return(OBJ_ARROW_RIGHT_PRICE); }
+   //--- change of arrow code and anchor point is blocked
+   virtual bool      ArrowCode(const char code) const override { return(false); }
+   char              ArrowCode(void) const { return(CChartObjectArrow::ArrowCode()); }
+   virtual bool      Anchor(const ENUM_ARROW_ANCHOR anchor) const override { return(false); }
+   ENUM_ARROW_ANCHOR Anchor(void) const { return(CChartObjectArrow::Anchor()); }
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -473,8 +467,7 @@ CChartObjectArrowRightPrice::~CChartObjectArrowRightPrice(void)
 //+------------------------------------------------------------------+
 //| Create object "Right Price Label"                                |
 //+------------------------------------------------------------------+
-bool CChartObjectArrowRightPrice::Create(long chart_id,const string name,const int window,
-                                         const datetime time,const double price)
+bool CChartObjectArrowRightPrice::Create(long chart_id,const string name,const int window,const datetime time,const double price)
   {
    if(!ObjectCreate(chart_id,name,OBJ_ARROW_RIGHT_PRICE,window,time,price))
       return(false);

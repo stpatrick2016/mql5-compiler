@@ -40,6 +40,7 @@ public:
    virtual bool      Shift(const int dx,const int dy);
    //--- ID
    virtual long      Id(const long id);
+   long              Id(void) const { return(CWnd::Id()); }
    //--- state
    virtual bool      Enable(void);
    virtual bool      Disable(void);

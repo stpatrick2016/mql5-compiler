@@ -14,6 +14,10 @@ class CChartObjectSubChart : public CChartObject
 public:
                      CChartObjectSubChart(void);
                     ~CChartObjectSubChart(void);
+   //--- method of creating object
+   bool              Create(long chart_id,const string name,const int window,const int X,const int Y,const int sizeX,const int sizeY);
+   //--- method of identifying the object
+   virtual int       Type(void) const { return(OBJ_CHART); }                    
    //--- methods of access to properties of the object
    int               X_Distance(void) const;
    bool              X_Distance(const int X) const;
@@ -36,13 +40,10 @@ public:
    bool              PriceScale(void) const;
    bool              PriceScale(const bool scale) const;
    //--- change of time/price coordinates is blocked
-   bool              Time(const datetime time) const { return(false); }
-   bool              Price(const double price) const { return(false); }
-   //--- method of creating object
-   bool              Create(long chart_id,const string name,const int window,
-                            const int X,const int Y,const int sizeX,const int sizeY);
-   //--- method of identifying the object
-   virtual int       Type(void) const { return(OBJ_CHART); }
+   datetime          Time(const int point) const { return(CChartObject::Time(point)); }
+   bool              Time(const int point,const datetime time) const { return(false); }
+   double            Price(const int point) const { return(CChartObject::Price(point)); }
+   bool              Price(const int point,const double price) const { return(false); }
    //--- methods for working with files
    virtual bool      Save(const int file_handle);
    virtual bool      Load(const int file_handle);

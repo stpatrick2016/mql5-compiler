@@ -20,14 +20,14 @@ protected:
 public:
                      CChartObject(void);
                     ~CChartObject(void);
+   //--- method of identifying the object
+   virtual int       Type(void) const { return(0x8888); }
    //--- methods of access to protected data
    long              ChartId(void) const { return(m_chart_id); }
    int               Window(void) const { return(m_window); }
    string            Name(void) const { return(m_name); }
    bool              Name(const string name);
    int               NumPoints(void) const { return(m_num_points); }
-   //--- method of identifying the object
-   virtual int       Type(void) const { return(0x8888); }
    //--- methods of filling the object
    bool              Attach(long chart_id,const string name,const int window,const int points);
    bool              SetPoint(const int point,const datetime time,const double price) const;

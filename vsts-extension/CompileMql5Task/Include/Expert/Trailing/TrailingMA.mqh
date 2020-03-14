@@ -39,6 +39,7 @@ public:
    //--- methods of initialization of protected data
    void              Period(int period)                  { m_ma_period=period;   }
    void              Shift(int shift)                    { m_ma_shift=shift;     }
+
    void              Method(ENUM_MA_METHOD method)       { m_ma_method=method;   }
    void              Applied(ENUM_APPLIED_PRICE applied) { m_ma_applied=applied; }
    virtual bool      InitIndicators(CIndicators *indicators);

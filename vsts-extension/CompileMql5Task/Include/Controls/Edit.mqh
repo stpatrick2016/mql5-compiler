@@ -32,6 +32,7 @@ public:
    bool              TextAlign(const ENUM_ALIGN_MODE align);
    //--- data access
    string            Text(void)             const { return(m_edit.Description());                 }
+   bool              Text(const string value)     { return(CWndObj::Text(value));                 }
 
 protected:
    //--- handlers of object events

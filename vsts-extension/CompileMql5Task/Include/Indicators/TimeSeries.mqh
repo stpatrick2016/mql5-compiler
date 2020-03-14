@@ -211,9 +211,10 @@ public:
    //--- method of creation
    bool              Create(const string symbol,const ENUM_TIMEFRAMES period);
    //--- methods of access to data
+   double            GetData(const int index) const { return(CPriceSeries::GetData(index)); }
    int               GetData(const int start_pos,const int count,double &buffer[]) const;
    int               GetData(const datetime start_time,const int count,double &buffer[]) const;
-   int               GetData(const datetime start_time,const datetime stop_time,double &buffer[]) const;
+   int               GetData(const datetime start_time,const datetime stop_time,double &buffer[]) const;   
   };
 //+------------------------------------------------------------------+
 //| Constructor                                                      |
@@ -338,6 +339,7 @@ public:
    //--- method of creation
    bool              Create(const string symbol,const ENUM_TIMEFRAMES period);
    //--- methods of access to data
+   double            GetData(const int index) const { return(CPriceSeries::GetData(index)); }
    int               GetData(const int start_pos,const int count,double &buffer[]) const;
    int               GetData(const datetime start_time,const int count,double &buffer[]) const;
    int               GetData(const datetime start_time,const datetime stop_time,double &buffer[]) const;
@@ -465,6 +467,7 @@ public:
    //--- method of creation
    bool              Create(const string symbol,const ENUM_TIMEFRAMES period);
    //--- methods of access to data
+   double            GetData(const int index) const { return(CPriceSeries::GetData(index)); }
    int               GetData(const int start_pos,const int count,double &buffer[]) const;
    int               GetData(const datetime start_time,const int count,double &buffer[]) const;
    int               GetData(const datetime start_time,const datetime stop_time,double &buffer[]) const;
@@ -592,6 +595,7 @@ public:
    //--- method of creation
    bool              Create(const string symbol,const ENUM_TIMEFRAMES period);
    //--- methods of access to data
+   double            GetData(const int index) const { return(CPriceSeries::GetData(index)); }
    int               GetData(const int start_pos,const int count,double &buffer[]) const;
    int               GetData(const datetime start_time,const int count,double &buffer[]) const;
    int               GetData(const datetime start_time,const datetime stop_time,double &buffer[]) const;
