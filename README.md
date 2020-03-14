@@ -7,7 +7,7 @@ The extension is not published in marketplace (I have been refused by MetaQuotes
 * Write me and tell me your organization name and I will share it with you. This is the one that preceeding @visualstudio.com, for example, if your VSO's url is https://mywork.visualstudio.com, then your organization name is mywork. It is not a secret information (as far as I aware). The advantage of this approach is that you will automatically get updates.
 
 # How to develop VSTS build tasks
-To pack the extension (providing all prerequisites are installed, see links below), run this command from command line:
+To pack the extension (providing all prerequisites are installed, see links below), run this command from folder _vsts-extension_ in  command line:
 ```
 tfx extension create --manifest-globs vss-extension.json
 ```
