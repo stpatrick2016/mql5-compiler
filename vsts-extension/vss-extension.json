@@ -2,14 +2,14 @@
     "manifestVersion": 1,
     "id": "stpatrick-tfs-build-tasks-mql5",
     "name": "MetaTrader 5 build tasks",
-    "version": "0.1.13",
+    "version": "0.1.14",
     "publisher": "philip-patrick",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "Build task for compiling MetaTrader 5 (MQL5) files.",
+    "description": "Build task for compiling MetaTrader 5 (MQL5) files. Metatrader version: 5.00 build 2450, May 22, 2020",
     "categories": [
         "Build and release"
     ],

@@ -12,7 +12,7 @@
     "version": {
         "Major": 0,
         "Minor": 1,
-        "Patch": 13
+        "Patch": 14
     },
     "minimumAgentVersion": "1.95.0",
     "instanceNameFormat": "Compile $(pathToSources)",
