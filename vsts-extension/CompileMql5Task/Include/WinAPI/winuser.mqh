@@ -231,7 +231,7 @@ struct COPYDATASTRUCT
    uint              cbData;
   };
 //---
-struct CREATESTRUCTW
+struct CREATESTRUCTW pack(8)
   {
    PVOID             lpCreateParams;
    HANDLE            hInstance;
@@ -675,7 +675,7 @@ struct MOUSEHOOKSTRUCTEX: public MONITORINFO
    uint              mouseData;
   };
 //---
-struct MOUSEINPUT
+struct MOUSEINPUT pack(8)
   {
    int               dx;
    int               dy;
@@ -793,7 +793,7 @@ struct POINTER_DEVICE_CURSOR_INFO
    POINTER_DEVICE_CURSOR_TYPE cursor;
   };
 //---
-struct POINTER_DEVICE_INFO
+struct POINTER_DEVICE_INFO pack(8)
   {
    uint              displayOrientation;
    HANDLE            device;
@@ -1151,7 +1151,7 @@ struct WTSSESSION_NOTIFICATION
    uint              dwSessionId;
   };
 //---
-struct RAWMOUSE
+struct RAWMOUSE pack(4)
   {
    ushort            usFlags;
    uint              ulButtons;
@@ -1659,7 +1659,7 @@ void                                PostQuitMessage(int exit_code);
 int                                 PostThreadMessageW(uint thread,uint Msg,PVOID param,PVOID param);
 int                                 PrintWindow(HANDLE hwnd,HANDLE blt,uint flags);
 uint                                PrivateExtractIconsW(const string file_name,int icon_index,int icon,int icon,HANDLE &phicon,uint &piconid,uint icons,uint flags);
-int                                 PtInRect(const RECT &lprc,POINT pt);
+int                                 PtInRect(const RECT &lprc,long pt);
 long                                QueryDisplayConfig(uint flags,uint &path_array_elements,DISPLAYCONFIG_PATH_INFO &array,uint &mode_info_array_elements,DISPLAYCONFIG_MODE_INFO &info_array[],DISPLAYCONFIG_TOPOLOGY_ID &topology_id);
 HANDLE                              RealChildWindowFromPoint(HANDLE parent,long parent_client_coords);
 uint                                RealGetWindowClassW(HANDLE hwnd,ushort &class_name[],uint class_name_max);
@@ -1817,8 +1817,8 @@ short                               VkKeyScanW(ushort ch);
 uint                                WaitForInputIdle(HANDLE process,uint milliseconds);
 int                                 WaitMessage(void);
 HANDLE                              WindowFromDC(HANDLE hDC);
-HANDLE                              WindowFromPhysicalPoint(POINT point);
-HANDLE                              WindowFromPoint(POINT point);
+HANDLE                              WindowFromPhysicalPoint(long point);
+HANDLE                              WindowFromPoint(long point);
 int                                 WinHelpW(HANDLE wnd_main,const string help,uint command,ulong data);
 int                                 wvsprintfW(ushort &[],const string,PVOID &arglist[]);
 #import

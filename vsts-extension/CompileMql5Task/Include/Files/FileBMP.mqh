@@ -144,7 +144,7 @@ int CFileBMP::Write32BitsArray(uint& uint_array[],const int width,const int heig
    FileWriteStruct(m_handle,m_info_header);
    uint written=FileWriteArray(m_handle,uint_array,0,size);
 //--- bytes written
-   return((int)written*32);
+   return((int)written*sizeof(uint));
   }
 //+------------------------------------------------------------------+
 //| Read the file                                                    |
@@ -166,7 +166,7 @@ int CFileBMP::Read32BitsArray(uint& uint_array[],int& width,int& height)
    FileSeek(m_handle,sizeof(m_file_header)+sizeof(m_info_header),SEEK_SET);
    uint read=FileReadArray(m_handle,uint_array,0,size);
 //--- bytes read
-   return((int)read*32);
+   return((int)read*sizeof(uint));
   }
 //+------------------------------------------------------------------+
 //| Close the file                                                   |
