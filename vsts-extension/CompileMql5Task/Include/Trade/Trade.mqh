@@ -725,9 +725,13 @@ bool CTrade::OrderModify(const ulong ticket,const double price,const double sl,c
 //--- check stopped
    if(IsStopped(__FUNCTION__))
       return(false);
+//--- check order existence
+   if(!OrderSelect(ticket))
+      return(false);
 //--- clean
    ClearStructures();
 //--- setting request
+   m_request.symbol      =OrderGetString(ORDER_SYMBOL);
    m_request.action      =TRADE_ACTION_MODIFY;
    m_request.magic       =m_magic;
    m_request.order       =ticket;

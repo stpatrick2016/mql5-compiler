@@ -616,7 +616,7 @@ uint                   GetPrivateProfileSectionNamesW(string return_buffer,uint 
 uint                   GetPrivateProfileSectionW(const string app_name,string returned_string,uint size,const string file_name);
 uint                   GetPrivateProfileStringW(const string app_name,const string key_name,const string default_value,string returned_string,uint size,const string file_name);
 int                    GetPrivateProfileStructW(const string section,const string key,PVOID struct_obj,uint size_struct,const string file);
-int                    GetProcessAffinityMask(HANDLE process,uint &process_affinity_mask,uint &system_affinity_mask);
+int                    GetProcessAffinityMask(HANDLE process,ulong &process_affinity_mask,ulong &system_affinity_mask);
 int                    GetProcessDEPPolicy(HANDLE process,uint &flags,int &permanent);
 int                    GetProcessIoCounters(HANDLE process,IO_COUNTERS &io_counters);
 int                    GetProcessWorkingSetSize(HANDLE process,ulong &minimum_working_set_size,ulong &maximum_working_set_size);
